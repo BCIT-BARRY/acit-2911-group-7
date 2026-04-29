@@ -1,0 +1,12 @@
+[project]
+name = "acit-2911-group-7"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "authlib>=1.7.0",
+    "flask>=3.1.3",
+    "requests>=2.33.1",
+    "sqlalchemy>=2.0.49",
+]

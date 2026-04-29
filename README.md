@@ -1,8 +1,5 @@
 # Invest7 💹
 
-<<<<<<< Updated upstream
-
-=======
 ## Stock/Portfolio Tracker 📑
 
 Invest7 is a Flask web application that allows users to create a paper trading stock portfolio.
@@ -20,16 +17,17 @@ CRUD Features:
 - Nikola Leung [A01487000]
 - Ryan Yu [A01425534]
 - Yichao Huang [A01477524]
-- Pallavi Pallavi [A0145138]
+- Pallavi [A0145138]
 
 ## Tech Sack 🧰
 
 - Python
 - [Flask](https://flask.palletsprojects.com/en/stable/)
 - [Flask-SQLAlchemy](https://flask-sqlalchemy.readthedocs.io/en/stable/)
-- [Stock Market API (Finnhub)](https://finnhub.io/docs/api/)
+- [Stock Market API](https://finnhub.io/docs/api/)
 - Git Workflow
 - GitHub Projects
+
 
 ## Setup Instructions 📚
 
@@ -46,4 +44,3 @@ uv sync
 ```
 
 ## Work In Progress 🚧
->>>>>>> Stashed changes
