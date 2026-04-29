@@ -15,14 +15,12 @@ Stock/Portfolio Tracker is a Flask web application that allows users to create a
 ## Tech Sack 🧰
 
 - Python
-- Flask
-- SQLite
-- HTML
-- CSS
-- Git
-- GitHub
+- [Flask](https://flask.palletsprojects.com/en/stable/)
+- [Flask-SQLAlchemy](https://flask-sqlalchemy.readthedocs.io/en/stable/)
+- [Stock Market API](https://finnhub.io/docs/api/)
+- Git Workflow
 - GitHub Projects
-- Stock Market API (Finnhub)
+
 
 ## Setup Instructions 📚
 
@@ -40,4 +38,4 @@ uv sync
 
 ## Work In Progress 🚧
 
-asdfasdfasdfasdf
+
