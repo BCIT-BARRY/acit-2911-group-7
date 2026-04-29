@@ -9,8 +9,8 @@ Stock/Portfolio Tracker is a Flask web application that allows users to create a
 - Barry Bui [A01490149]
 - Nikola Leung [A01487000]
 - Ryan Yu [A01425534]
-- Yichao Huang [TBD]
-- Pending Full Name [TBD]
+- Yichao Huang [A01477524]
+- Pallavi [TBD]
 
 ## Tech Sack 🧰
 
