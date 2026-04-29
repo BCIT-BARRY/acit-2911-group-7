@@ -12,7 +12,7 @@ Stock/Portfolio Tracker is a Flask web application that allows users to create a
 - Yichao Huang [TBD]
 - Pending Full Name [TBD]
 
-## Tech Sack 🧰
+## Tech Stack 🧰
 
 - Python
 - Flask
