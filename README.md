@@ -17,7 +17,7 @@ CRUD Features:
 - Nikola Leung [A01487000]
 - Ryan Yu [A01425534]
 - Yichao Huang [A01477524]
-- Pallavi [A0145138]
+- Pallavi Pallavi [A0145138]
 
 ## Tech Sack 🧰
 
