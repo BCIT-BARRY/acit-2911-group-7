@@ -1,8 +1,5 @@
 # Invest7 💹
 
-<<<<<<< Updated upstream
-
-=======
 ## Stock/Portfolio Tracker 📑
 
 Invest7 is a Flask web application that allows users to create a paper trading stock portfolio.
@@ -27,9 +24,10 @@ CRUD Features:
 - Python
 - [Flask](https://flask.palletsprojects.com/en/stable/)
 - [Flask-SQLAlchemy](https://flask-sqlalchemy.readthedocs.io/en/stable/)
-- [Stock Market API (Finnhub)](https://finnhub.io/docs/api/)
+- [Stock Market API](https://finnhub.io/docs/api/)
 - Git Workflow
 - GitHub Projects
+
 
 ## Setup Instructions 📚
 
@@ -46,4 +44,3 @@ uv sync
 ```
 
 ## Work In Progress 🚧
->>>>>>> Stashed changes
