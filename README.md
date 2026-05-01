@@ -1,8 +1,15 @@
 # Stock/Portfolio Tracker 💹
 
-## Description 📑
+## Stock/Portfolio Tracker 📑
 
-Stock/Portfolio Tracker is a Flask web application that allows users to create a paper trading stock portfolio
+Invest7 is a Flask web application that allows users to create a paper trading stock portfolio.
+
+CRUD Features:
+
+- 🟢 [**Create**]: POST a new investment to the portfolio
+- 🔍 [**Read**]: GET portfolio investments and fetch stock details using the Finnhub API.
+- ✏️ [**Update**]: POST, update shares by buying or selling, which updates the database.
+- 🗑️ [**Delete**]: DELETE an investment from the portfolio.
 
 ## Team Members 💪
 
@@ -17,10 +24,9 @@ Stock/Portfolio Tracker is a Flask web application that allows users to create a
 - Python
 - [Flask](https://flask.palletsprojects.com/en/stable/)
 - [Flask-SQLAlchemy](https://flask-sqlalchemy.readthedocs.io/en/stable/)
-- [Stock Market API](https://finnhub.io/docs/api/)
+- [Stock Market API (Finnhub)](https://finnhub.io/docs/api/)
 - Git Workflow
 - GitHub Projects
-
 
 ## Setup Instructions 📚
 
@@ -37,5 +43,3 @@ uv sync
 ```
 
 ## Work In Progress 🚧
-
-
