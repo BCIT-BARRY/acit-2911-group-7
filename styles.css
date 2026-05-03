@@ -202,6 +202,10 @@ img {
   background-color: var(--color-bg-hover);
 }
 
+.navbar__nav-link.active {
+  color: var(--color-accent-primary);
+}
+
 /* --- Auth buttons group --- */
 .navbar__auth {
   display: flex;
@@ -422,4 +426,300 @@ img {
   .footer__col {
     min-width: 120px;
   }
+}
+
+
+/* =============================================================
+   7. Portfolios Feature – Page Components
+   ============================================================= */
+
+/* --- Generic page wrapper --- */
+.page {
+  padding-block: var(--space-10);
+}
+
+.page__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.page__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.page__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2);
+}
+
+/* --- Card (reusable panel) --- */
+.card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+/* --- Empty state (used on portfolios list before any portfolio exists) --- */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-12) var(--space-6);
+  text-align: center;
+}
+
+.empty-state__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-bg-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.empty-state__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.empty-state__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  max-width: 420px;
+}
+
+/* --- Form layout --- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.form--wide {
+  max-width: 640px;
+}
+
+.form__row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.form__hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.form__input,
+.form__textarea,
+.form__select {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.form__input::placeholder,
+.form__textarea::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.form__input:focus,
+.form__textarea:focus,
+.form__select:focus {
+  outline: none;
+  border-color: var(--color-accent-primary);
+}
+
+.form__textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+/* --- Stats grid (Total stock value / Cash / P&L / Total) --- */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.stat {
+  flex: 1 1 200px;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.stat__label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.stat__value {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.stat__value--positive { color: var(--color-accent-green); }
+.stat__value--negative { color: var(--color-accent-red); }
+
+/* --- Action button row above holdings table --- */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.toolbar__group {
+  display: flex;
+  gap: var(--space-3);
+}
+
+/* Sell button variant */
+.btn--danger {
+  background-color: transparent;
+  color: var(--color-accent-red);
+  border-color: var(--color-accent-red);
+}
+.btn--danger:hover {
+  background-color: var(--color-accent-red);
+  color: #fff;
+}
+
+/* Success / buy button variant */
+.btn--success {
+  background-color: var(--color-accent-green);
+  color: #000;
+  border-color: var(--color-accent-green);
+}
+.btn--success:hover {
+  background-color: #0bb572;
+  border-color: #0bb572;
+}
+
+/* --- Holdings table --- */
+.table-wrapper {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.table thead th {
+  text-align: left;
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg-secondary);
+}
+
+.table tbody td {
+  padding: var(--space-4) var(--space-5);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background-color: var(--color-bg-hover);
+}
+
+.text-right { text-align: right; }
+.text-positive { color: var(--color-accent-green); }
+.text-negative { color: var(--color-accent-red); }
+
+/* --- Portfolio list cards --- */
+.portfolio-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.portfolio-list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast),
+              background-color var(--transition-fast);
+}
+
+.portfolio-list__item:hover {
+  border-color: var(--color-accent-primary);
+  background-color: var(--color-bg-hover);
+}
+
+.portfolio-list__name {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.portfolio-list__meta {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
 }

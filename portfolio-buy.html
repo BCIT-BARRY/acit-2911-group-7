@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy Stock – Invest7</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo"><img src="logo.png" alt="Invest7 logo" /></a>
+      <nav class="navbar__nav">
+        <a href="index.html" class="navbar__nav-link">Markets</a>
+        <a href="portfolios.html" class="navbar__nav-link active">Portfolios</a>
+      </nav>
+      <div class="navbar__auth">
+        <a href="#" class="btn btn--ghost">Log In</a>
+        <a href="#" class="btn btn--primary">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main-content">
+    <div class="container page">
+
+      <div class="page__header" style="justify-content:flex-start;">
+        <a href="portfolio-detail.html" class="btn btn--ghost">&larr; Back</a>
+        <div>
+          <h1 class="page__title">Buy Stock</h1>
+          <p class="page__subtitle">Add a new buy transaction to your portfolio.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <!--
+          Replace action="portfolio-detail.html" with the real backend
+          endpoint (e.g. action="/portfolios/{id}/buy" method="post").
+        -->
+        <form class="form form--wide" action="portfolio-detail.html" method="get">
+
+          <div class="form__row">
+            <label for="symbol" class="form__label">Stock Symbol</label>
+            <input
+              id="symbol"
+              name="symbol"
+              type="text"
+              class="form__input"
+              placeholder="e.g. AAPL, TSLA, NVDA"
+              required
+              style="text-transform:uppercase;"
+            />
+          </div>
+
+          <div class="form__row">
+            <label for="price" class="form__label">Buy Price (per share)</label>
+            <input
+              id="price"
+              name="price"
+              type="number"
+              min="0"
+              step="0.01"
+              class="form__input"
+              placeholder="172.30"
+              required
+            />
+          </div>
+
+          <div class="form__row">
+            <label for="shares" class="form__label">Number of Shares</label>
+            <input
+              id="shares"
+              name="shares"
+              type="number"
+              min="0"
+              step="0.0001"
+              class="form__input"
+              placeholder="10"
+              required
+            />
+          </div>
+
+          <div class="form__row">
+            <label for="notes" class="form__label">Notes (optional)</label>
+            <textarea
+              id="notes"
+              name="notes"
+              class="form__textarea"
+              placeholder="Why are you buying? Strategy, target price, etc."
+            ></textarea>
+          </div>
+
+          <div class="form__actions">
+            <a href="portfolio-detail.html" class="btn btn--ghost">Cancel</a>
+            <button type="submit" class="btn btn--success">Confirm Buy</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html"><img src="logo.png" alt="Invest7 logo" /></a>
+          <p class="footer__tagline">
+            Smart tools for smarter investing. Track markets and manage your portfolio with confidence.
+          </p>
+        </div>
+        <div class="footer__columns">
+          <div class="footer__col">
+            <span class="footer__col-title">Quick Links</span>
+            <a href="index.html" class="footer__col-link">Markets</a>
+            <a href="portfolios.html" class="footer__col-link">Portfolios</a>
+          </div>
+          <div class="footer__col">
+            <span class="footer__col-title">About Us</span>
+            <a href="#" class="footer__col-link">Our Story</a>
+            <a href="#" class="footer__col-link">Careers</a>
+            <a href="#" class="footer__col-link">Press</a>
+          </div>
+          <div class="footer__col">
+            <span class="footer__col-title">Follow Us</span>
+            <div class="footer__social">
+              <a href="#" class="footer__social-link">Twitter / X</a>
+              <a href="#" class="footer__social-link">LinkedIn</a>
+              <a href="#" class="footer__social-link">Telegram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2025 Invest7. All rights reserved.</p>
+        <nav class="footer__legal-links">
+          <a href="#" class="footer__legal-link">Privacy Policy</a>
+          <a href="#" class="footer__legal-link">Terms of Service</a>
+          <a href="#" class="footer__legal-link">Cookie Policy</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

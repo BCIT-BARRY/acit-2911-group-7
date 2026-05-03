@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolios – Invest7</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" role="banner">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="Invest7 Home">
+        <img src="logo.png" alt="Invest7 logo" />
+      </a>
+      <nav class="navbar__nav" aria-label="Primary navigation">
+        <a href="index.html" class="navbar__nav-link">Markets</a>
+        <a href="portfolios.html" class="navbar__nav-link active">Portfolios</a>
+      </nav>
+      <div class="navbar__auth">
+        <a href="#" class="btn btn--ghost">Log In</a>
+        <a href="#" class="btn btn--primary">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main-content">
+    <div class="container page">
+
+      <div class="page__header">
+        <div>
+          <h1 class="page__title">My Portfolios</h1>
+          <p class="page__subtitle">Manage your investment portfolios and track performance.</p>
+        </div>
+        <a href="portfolio-create.html" class="btn btn--primary">+ Create Portfolio</a>
+      </div>
+
+      <!--
+        Empty-state by default. When the user has portfolios,
+        replace this block with the .portfolio-list block below
+        (currently commented out as a template).
+      -->
+      <div class="card">
+        <div class="empty-state">
+          <div class="empty-state__icon">+</div>
+          <h2 class="empty-state__title">No portfolios yet</h2>
+          <p class="empty-state__text">
+            Create your first portfolio to start tracking your stock holdings,
+            cash balance, and overall profit & loss.
+          </p>
+          <a href="portfolio-create.html" class="btn btn--primary">Create Portfolio</a>
+        </div>
+      </div>
+
+      <!--
+        ===== TEMPLATE: portfolio list (uncomment when wiring back-end) =====
+        <ul class="portfolio-list">
+          <li>
+            <a href="portfolio-detail.html" class="portfolio-list__item">
+              <div>
+                <div class="portfolio-list__name">Tech Growth</div>
+                <div class="portfolio-list__meta">5 holdings · Created 2025-08-01</div>
+              </div>
+              <div class="text-right">
+                <div class="stat__value">$12,480.50</div>
+                <div class="text-positive">+5.21%</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      -->
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" aria-label="Invest7 Home">
+            <img src="logo.png" alt="Invest7 logo" />
+          </a>
+          <p class="footer__tagline">
+            Smart tools for smarter investing. Track markets and manage your portfolio with confidence.
+          </p>
+        </div>
+        <div class="footer__columns">
+          <div class="footer__col">
+            <span class="footer__col-title">Quick Links</span>
+            <a href="index.html" class="footer__col-link">Markets</a>
+            <a href="portfolios.html" class="footer__col-link">Portfolios</a>
+          </div>
+          <div class="footer__col">
+            <span class="footer__col-title">About Us</span>
+            <a href="#" class="footer__col-link">Our Story</a>
+            <a href="#" class="footer__col-link">Careers</a>
+            <a href="#" class="footer__col-link">Press</a>
+          </div>
+          <div class="footer__col">
+            <span class="footer__col-title">Follow Us</span>
+            <div class="footer__social">
+              <a href="#" class="footer__social-link">Twitter / X</a>
+              <a href="#" class="footer__social-link">LinkedIn</a>
+              <a href="#" class="footer__social-link">Telegram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2025 Invest7. All rights reserved.</p>
+        <nav class="footer__legal-links">
+          <a href="#" class="footer__legal-link">Privacy Policy</a>
+          <a href="#" class="footer__legal-link">Terms of Service</a>
+          <a href="#" class="footer__legal-link">Cookie Policy</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
