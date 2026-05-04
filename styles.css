@@ -1,4 +1,4 @@
-/* =============================================================
+  /* =============================================================
    Invest7 – Global Design System
    Inspired by Binance dark-theme style guide
    All developers on this project should follow these tokens
@@ -255,6 +255,26 @@ img {
   background-color: var(--color-accent-hover);
   border-color: var(--color-accent-hover);
 }
+
+/* login page styles login box*/
+
+#login {
+  height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;     /* Vertical centering */
+    background-color: #1e2329; /* Light grey background */
+    font-family: sans-serif;
+}
+
+#login-container {
+    background-color: #848e9c;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    width: 300px;
+  }
 
 /* -------------------------------------------------------------
    5. Footer

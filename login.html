@@ -1,60 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invest7 – Smart Investing Platform</title>
-
-  <!-- Google Fonts: Inter (matches Binance-style sans-serif) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invest7 – Login</title>
+    <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
+    <header>
+        <div class="container navbar__inner">
+            <a href="#" class="navbar__logo" aria-label="Invest7 Home">
+            <img src="logo.png" alt="Invest7 logo" />
+            </a>
 
-  <!-- ============================================================
-       NAVIGATION BAR
-       ============================================================ -->
-  <header class="navbar" role="banner">
-    <div class="container navbar__inner">
+            <nav class="navbar__nav" aria-label="Primary navigation">
+                <a href="#" class="navbar__nav-link active">Markets</a>
+                <a href="portfolios.html" class="navbar__nav-link">Portfolios</a>
+            </nav>
+        </div>
 
-      <!-- Logo -->
-      <a href="#" class="navbar__logo" aria-label="Invest7 Home">
-        <img src="logo.png" alt="Invest7 logo" />
-      </a>
+    </header>
 
-      <!-- Primary nav links (replace # with real page URLs) -->
-      <nav class="navbar__nav" aria-label="Primary navigation">
-        <a href="#" class="navbar__nav-link active">Markets</a>
-        <a href="portfolios.html" class="navbar__nav-link">Portfolios</a>
-      </nav>
+    <main id="login">
+        <div id="login-container">
+        <form>
+            <label for="username/email">Username/Email</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username or email">
+            <br>
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password" placeholder="Enter your password">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        </div>        
 
-      <!-- Auth buttons -->
-      <div class="navbar__auth">
-        <a href="login.html" class="btn btn--ghost">Log In</a>
-        <a href="#" class="btn btn--primary">Sign Up</a>
-      </div>
+    </main>
 
-    </div>
-  </header>
-
-  <!-- ============================================================
-       MAIN CONTENT AREA
-       (Leave empty – individual page sections will be added here)
-       ============================================================ -->
-  <main class="main-content" id="main-content" aria-label="Main content">
-    <!-- Page-specific sections go here -->
-  </main>
-
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
-  <footer class="footer" role="contentinfo">
+    <footer class="footer" role="contentinfo">
     <div class="container">
 
       <!-- Top: brand + link columns -->
@@ -137,6 +119,6 @@
 
     </div><!-- /.container -->
   </footer>
-
+    
 </body>
 </html>
