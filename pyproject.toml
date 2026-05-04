@@ -1,0 +1,23 @@
+[project]
+name = "acit-2911-group-7"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+	"authlib>=1.5.2",
+	"flask>=3.0.0",
+	"flask-sqlalchemy>=3.1.1",
+	"requests>=2.32.3",
+]
+
+[project.scripts]
+serve = "main:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["main"]
+packages = ["app"]

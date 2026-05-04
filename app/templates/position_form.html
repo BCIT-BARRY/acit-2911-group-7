@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} - Paper Portfolio Tracker{% endblock %}
+
+{% block content %}
+  <section class="panel form-panel">
+    <div class="panel-head">
+      <h2>{{ title }}</h2>
+      <p>Only notes are editable here. Use Buy / Sell to change shares and paper cash.</p>
+    </div>
+
+    <form class="form-grid" action="{{ form_action }}" method="post">
+      <label>
+        <span>Symbol</span>
+        <input type="text" value="{{ position.symbol if position else '' }}" readonly>
+      </label>
+
+      <label>
+        <span>Quantity</span>
+        <input type="text" value="{{ '%.4f'|format(position.quantity) if position else '' }}" readonly>
+      </label>
+
+      <label>
+        <span>Average cost</span>
+        <input type="text" value="{{ money(position.average_cost) if position else '' }}" readonly>
+      </label>
+
+      <label>
+        <span>Notes</span>
+        <input type="text" name="notes" value="{{ position.notes if position and position.notes else '' }}" placeholder="Optional notes">
+      </label>
+
+      <div class="action-row">
+        <button class="button button-primary" type="submit">Save</button>
+        <a class="button button-secondary" href="{{ url_for('tracker.index', portfolio_id=portfolio.id) }}">Cancel</a>
+      </div>
+    </form>
+  </section>
+{% endblock %}

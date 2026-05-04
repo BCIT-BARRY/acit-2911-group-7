@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Paper Portfolio Tracker{% endblock %}
+
+{% block content %}
+  <section class="panel form-panel">
+    <div class="panel-head">
+      <h2>Sign in required</h2>
+      <p>You must authenticate with OAuth before accessing portfolios and trades.</p>
+    </div>
+
+    {% if oauth_ready %}
+      <div class="action-row">
+        <a class="button button-primary" href="{{ url_for('tracker.login') }}">Continue with OAuth</a>
+      </div>
+    {% else %}
+      <p class="empty-state">OAuth is not configured yet. Set OAUTH_CLIENT_ID and OAUTH_CLIENT_SECRET in your environment.</p>
+    {% endif %}
+  </section>
+{% endblock %}

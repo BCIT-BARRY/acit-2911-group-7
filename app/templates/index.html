@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Paper Portfolio Tracker{% endblock %}
+
+{% block content %}
+  <section class="toolbar">
+    <a class="button button-primary" href="{{ url_for('tracker.create_portfolio') }}">New portfolio</a>
+  </section>
+
+  <section class="grid grid-split">
+    <article class="panel">
+      <div class="panel-head">
+        <h2>Portfolios</h2>
+        <p>Stored in SQLite and ready for paper trades.</p>
+      </div>
+
+      {% if portfolios %}
+        <div class="portfolio-list">
+          {% for row in portfolios %}
+            <a class="portfolio-card {% if selected_portfolio and row.portfolio.id == selected_portfolio.id %}is-active{% endif %}" href="{{ url_for('tracker.index', portfolio_id=row.portfolio.id) }}">
+              <div>
+                <strong>{{ row.portfolio.name }}</strong>
+                <span>{{ row.positions }} position{% if row.positions != 1 %}s{% endif %}</span>
+              </div>
+              <div class="portfolio-card-meta">
+                <span>Cash {{ money(row.cash_balance) }}</span>
+                <span>Book {{ money(row.book_value) }}</span>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="empty-state">Create your first portfolio to start tracking simulated trades.</p>
+      {% endif %}
+    </article>
+
+    <article class="panel panel-accent">
+      {% if selected_context %}
+        <div class="panel-head">
+          <h2>{{ selected_context.portfolio.name }}</h2>
+          <p>Updated from live Finnhub data when the page loads.</p>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-card">
+            <span>Cash</span>
+            <strong>{{ money(selected_context.cash_balance) }}</strong>
+          </div>
+          <div class="summary-card">
+            <span>Market value</span>
+            <strong>{{ money(selected_context.market_value_total) }}</strong>
+          </div>
+          <div class="summary-card">
+            <span>Total equity</span>
+            <strong>{{ money(selected_context.total_equity) }}</strong>
+          </div>
+          <div class="summary-card">
+            <span>Paper P/L</span>
+            <strong class="{% if selected_context.total_pnl >= 0 %}positive{% else %}negative{% endif %}">{{ money(selected_context.total_pnl) }}</strong>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <a class="button button-secondary" href="{{ url_for('tracker.edit_portfolio', portfolio_id=selected_context.portfolio.id) }}">Edit portfolio</a>
+          <form action="{{ url_for('tracker.delete_portfolio', portfolio_id=selected_context.portfolio.id) }}" method="post" onsubmit="return confirm('Delete this portfolio and all positions?');">
+            <button class="button button-danger" type="submit">Delete portfolio</button>
+          </form>
+          <a class="button button-primary" href="{{ url_for('tracker.trade_position', portfolio_id=selected_context.portfolio.id) }}">Buy / Sell</a>
+        </div>
+
+        {% if selected_context.position_rows %}
+          <div class="position-table-wrap">
+            <table class="position-table">
+              <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th>Company</th>
+                  <th>Qty</th>
+                  <th>Avg cost</th>
+                  <th>Price</th>
+                  <th>Value</th>
+                  <th>P/L</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in selected_context.position_rows %}
+                  <tr>
+                    <td>{{ row.position.symbol }}</td>
+                    <td>
+                      <div class="stacked-cell">
+                        <strong>{{ row.position.company_name }}</strong>
+                        {% if row.position.notes %}<span>{{ row.position.notes }}</span>{% endif %}
+                      </div>
+                    </td>
+                    <td>{{ '%.2f'|format(row.position.quantity) }}</td>
+                    <td>{{ money(row.position.average_cost) }}</td>
+                    <td>{{ money(row.current_price) }}</td>
+                    <td>{{ money(row.market_value) }}</td>
+                    <td class="{% if row.gain_loss >= 0 %}positive{% else %}negative{% endif %}">{{ money(row.gain_loss) }}<span class="muted">({{ percent(row.gain_loss_percent) }})</span></td>
+                    <td>
+                      <div class="row-actions">
+                        <a href="{{ url_for('tracker.edit_position', position_id=row.position.id) }}">Edit</a>
+                        <form action="{{ url_for('tracker.delete_position', position_id=row.position.id) }}" method="post" onsubmit="return confirm('Delete this position?');">
+                          <button type="submit">Delete</button>
+                        </form>
+                      </div>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <p class="empty-state">This portfolio has no positions yet.</p>
+        {% endif %}
+      {% else %}
+        <div class="panel-head">
+          <h2>No active portfolio</h2>
+          <p>Create a portfolio to see live quotes, performance, and paper holdings here.</p>
+        </div>
+      {% endif %}
+    </article>
+  </section>
+{% endblock %}

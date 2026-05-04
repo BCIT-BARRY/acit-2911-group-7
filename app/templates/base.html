@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Paper Portfolio Tracker{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Finnhub-backed paper trading</p>
+          <h1>Paper Portfolio Tracker</h1>
+          <p class="hero-copy">Track simulated portfolios, hold positions in SQLite, and pull live market data from Finnhub.</p>
+        </div>
+        <div class="hero-meta">
+          <span>SQLite storage</span>
+          <span>CRUD portfolios</span>
+          <span>Live quotes</span>
+          {% if current_user %}
+            <span>{{ current_user.name }}</span>
+            <form action="{{ url_for('tracker.logout') }}" method="post">
+              <button class="button button-secondary" type="submit">Logout</button>
+            </form>
+          {% else %}
+            <a class="button button-primary" href="{{ url_for('tracker.login') }}">Login</a>
+          {% endif %}
+        </div>
+      </header>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <section class="flash-stack">
+            {% for category, message in messages %}
+              <div class="flash flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          </section>
+        {% endif %}
+      {% endwith %}
+
+      <main>
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </body>
+</html>

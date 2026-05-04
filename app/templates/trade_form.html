@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} - Paper Portfolio Tracker{% endblock %}
+
+{% block content %}
+  <section class="panel form-panel">
+    <div class="panel-head">
+      <h2>{{ title }}</h2>
+      <p>Buying reduces paper cash. Selling increases paper cash.</p>
+      <p><strong>Portfolio:</strong> {{ portfolio.name }} | <strong>Cash:</strong> {{ money(portfolio.cash_balance) }}</p>
+    </div>
+
+    <form class="form-grid" action="{{ form_action }}" method="post">
+      <label>
+        <span>Action</span>
+        <select name="action" required>
+          <option value="buy">Buy</option>
+          <option value="sell">Sell</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Symbol</span>
+        <input type="text" name="symbol" placeholder="AAPL" required>
+      </label>
+
+      <label>
+        <span>Quantity</span>
+        <input type="number" name="quantity" min="0.0001" step="0.0001" value="1" required>
+      </label>
+
+      <label>
+        <span>Trade price</span>
+        <input type="number" name="trade_price" min="0.01" step="0.01" required>
+      </label>
+
+      <label>
+        <span>Notes</span>
+        <input type="text" name="notes" placeholder="Optional notes">
+      </label>
+
+      <div class="action-row">
+        <button class="button button-primary" type="submit">Submit trade</button>
+        <a class="button button-secondary" href="{{ url_for('tracker.index', portfolio_id=portfolio.id) }}">Cancel</a>
+      </div>
+    </form>
+  </section>
+{% endblock %}
