@@ -1,0 +1,64 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.home-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #162B75;
+  color: green;
+  padding: .7m;
+  
+}
+
+.logo-picture {
+  padding: 3px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links a {
+  padding-right: 20px ;
+  color: white;
+  font-weight: 300;
+  text-decoration: none;
+  
+}
+
+main {
+  flex: 1;
+}
+
+.home-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.login-box {
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  padding: 5%;
+}
+
+.home-footer {
+  display: flex;
+  justify-content: center;
+  background-color: #162B75;
+  color: white;
+  height: 2.5%;
+  padding: .6em;
+}
