@@ -1,0 +1,46 @@
+<!-- LAYOUT PAGE MAIN INHERITANCE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% if title %}
+        <title>Invest7 | {{ title }}</title>
+    {% else %}
+        <title>Invest 7</title>
+    {% endif %}
+
+    <link rel="logo" type="png" href="{{ url_for('static', filename='invest7_logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo-picture">
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='invest7_logo.png') }}" width="55px" alt="Logo of Invest7">
+                </a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+
+    <footer class="home-footer">
+        <div class="footer">
+            &copy; 2026 Invest7. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

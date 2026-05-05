@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<main class="home-main">
+    <div class="login-box">
+        <form>
+            <label for="username">Username</label><br>
+            <input type="text" id="username" name="username" placeholder="Enter your username"><br>
+
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
+
+            <a href="{{ url_for('portfolio') }}">
+                <button type="button">Login</button>
+            </a>
+
+            <a href="{{ url_for('portfolio') }}">
+                <button type="button">Signup</button>
+            </a>
+        </form>
+    </div>
+</main>
+
+{% endblock content %}
