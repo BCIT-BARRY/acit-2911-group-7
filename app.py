@@ -32,7 +32,7 @@ def login():
 # ROUTE: GET PORTFOLIO PAGE
 @app.route("/portfolio", methods=["GET"])
 def portfolio():
-    return render_template("/portfolio.html", title="Portfolio")
+    return render_template("portfolio.html", title="Portfolio")
 
 # start app
 if __name__ == "__main__":

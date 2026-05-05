@@ -2,23 +2,13 @@
 {% block content %}
 
 <main class="home-main">
-    <div class="login-box">
-        <form>
-            <label for="username">Username</label><br>
-            <input type="text" id="username" name="username" placeholder="Enter your username"><br>
+    <h1>Welcome to Invest7</h1>
+    <p>NOTE: This is a work in progress.</p>
 
-            <label for="password">Password</label><br>
-            <input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
-
-            <a href="{{ url_for('portfolio') }}">
-                <button type="button">Login</button>
-            </a>
-
-            <a href="{{ url_for('portfolio') }}">
-                <button type="button">Signup</button>
-            </a>
-        </form>
-    </div>
+    <form method="GET">
+        <button type="submit" formaction="{{ url_for('login') }}">Login</button>
+        <button type="submit" formaction="{{ url_for('portfolio') }}">View Portfolio</button>
+    </form>
 </main>
 
 {% endblock content %}
