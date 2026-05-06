@@ -4,3 +4,4 @@ __pycache__/
 instance/
 .python-version
 .venv/
+.env
