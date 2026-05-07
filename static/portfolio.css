@@ -11,7 +11,8 @@
     gap:0.5rem;
 }
 
-.creation-title {
+.creation-title,
+.holdings-title {
     font-size: 1.5rem;
 }
 
@@ -60,6 +61,79 @@
 
 
 /* holdings section, start */
+.total-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
 
+.top-sections{
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 30px;
+}
 
+.btn {
+    background-color: #0d6efd;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.portfolio-nav a {
+    text-decoration: none;
+    color:black;
+}
+
+.summary-card {
+    border: 2px solid #333;
+    border-radius: 14px;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.holdings-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.trade-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.table {
+    border: 1px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table-row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-row p {
+    flex: 1;
+    text-align: center;
+    padding: 16px;
+    margin: 0;
+}
+
+.table-header {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
 /* holdings section, end */

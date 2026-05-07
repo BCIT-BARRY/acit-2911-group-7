@@ -3,11 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>portfolio creation</title>
+    <title>holdings</title>
     <link rel="stylesheet" href="../static/portfolio.css">
 </head>
 
-<body>
-    <h1>This is the Portfolio page</h1>  
-</body>
+<body class="total-section">
 
+    <section class="top-sections">
+        <a href="create_portfolio.html" class="btn">Add Portfolio</a>
+        <a href="/delete-portfolio" class="btn">Delete Portfolio</a>
+    </section>
+    <section class="portfolio-nav">
+        <a href="">Portfolio1</a>
+        <a href="">Portfolio2</a>
+        <a href="">Portfolio3</a>
+    </section>
+    <section class="summary-card">
+        <div>
+            <h3>Stock Capital</h3>
+            <p>$0.00</p>
+        </div>
+        <div>
+            <h3>Remaining Cash</h3>
+            <p>$0.00</p>
+        </div>
+        <div>
+            <h3>Profit/Loss</h3>
+            <p>+$0.00</p>
+        </div>
+    </section>
+    <section class="holdings-section">
+        <div class="holdings-title-row">
+            <h2>Holdings</h2>
+            <div class="trade-buttons">
+            <a href="/buy" class="btn">Buy</a>
+            <a href="/sell" class="btn">Sell</a>
+            </div>
+        </div>
+        <div class="table">
+            <div class="table-row table-header">
+                <p>Stock Name</p>
+                <p>Stock Price</p>
+                <p>Stock Shares</p>
+                <p>Holding Value</p>
+                <p>Profit/Loss</p>
+            </div>
+            <div class="table-row">
+                <p>AAPL</p>
+                <p>$200</p>
+                <p>0</p>
+                <p>$0</p>
+                <p>+$0</p>
+            </div>
+        </div>
+    </section>
+
+</body>
