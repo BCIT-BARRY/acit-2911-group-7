@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio creation</title>
+    <link rel="stylesheet" href="../static/portfolio.css">
+</head>
+
+<body>
+    <div class = "creation-section">
+        <h1 class = "creation-title">This is the Create portfolio page</h1>
+        <form class = "creation-box">
+            <label class = "creation-box-title">Create a Portfolio</label>
+            <div class = "creation-box-row">
+                <label class = "box-row-left">Name</label>
+                <input class = "box-row-right" type="text" name="portfolio-name" placeholder="less than 10 words">
+            </div>
+            <div class = "creation-box-row">
+                <label class = "box-row-left">Cash Amount</label>
+                <input class = "box-row-right" type="text" name="cash-amount">
+            </div>
+            
+            <div class = "creation-box-bottom">
+                <button type = "button" class = "bottom-cancel">Cancel</button>
+                <!-- when connected with backend, use <button></button> instead of <a></a> -->
+                <!-- <button type = "button" class = "bottom-confirm">Confirm</button> -->
+                <a class = "bottom-confirm" href = "holdings.html"> 
+                    confirm
+                </a>
+            </div>
+           
+        </form>
+    </div>
+</body>
+    
