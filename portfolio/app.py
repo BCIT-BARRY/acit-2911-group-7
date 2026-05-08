@@ -6,6 +6,7 @@
 from flask import Flask, render_template, url_for
 
 # instantiate flask
+
 app = Flask(__name__)
 
 # ROUTE: GET INDEX PAGE 
