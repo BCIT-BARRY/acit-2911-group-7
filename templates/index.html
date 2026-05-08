@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>Invest7 | Home</h1>
+<p>Enjoy trading.</p>
+
+<form method="POST" action="{{ url_for('index') }}">
+    <input type="text" name="username" placeholder="Enter your username"><br>
+    <input type="password" name="password" placeholder="Enter your password"><br>
+    <input type="submit" value="Login">
+</form>
+
+{% endblock content %}

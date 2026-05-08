@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>Invest7 | Create a Portfolio</h1>
+
+<form method="POST" action="{{ url_for('create_portfolio') }}">
+    <input type="text" name="portfolio_name" placeholder="Enter Portfolio name">
+    <input type="text" name="portfolio_cash_amount" placeholder="Enter Portfolio cash amount"><br>
+    <input type="submit" value="Create Portfolio">
+</form>
+
+{% endblock content %}
