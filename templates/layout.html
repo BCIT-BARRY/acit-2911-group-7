@@ -27,7 +27,7 @@
             <ul class="nav-links">
                 <li><a href="{{ url_for('index') }}">Home</a></li>
                 {% if logged_in %}
-                    <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+                    <li><a href="{{ url_for('portfolio', portfolio_id=1) }}">Portfolio</a></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 {% else %}
                     <li><a href="{{ url_for('login') }}">Login</a></li>

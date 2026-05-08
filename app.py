@@ -30,22 +30,6 @@ app.config["SECRET_KEY"] = "change-this-secret-key"
 init_db()
 
 
-def get_current_portfolio_id():
-    user_id = session.get("user_id")
-    if not user_id:
-        return None
-    current_pid = session.get("current_portfolio_id")
-    if current_pid:
-        portfolio = get_portfolio(current_pid)
-        if portfolio and portfolio.user_id == user_id:
-            return current_pid
-    # Fallback to first portfolio
-    portfolios = get_portfolios_for_user(user_id)
-    if portfolios:
-        session["current_portfolio_id"] = portfolios[0].id
-        return portfolios[0].id
-    return None
-
 
 @app.context_processor
 def inject_login_state():
@@ -131,13 +115,12 @@ def signup():
     return render_template("signup.html", title="Sign Up")
 
 # ROUTE: GET PORTFOLIO PAGE
-@app.route("/portfolio", methods=["GET"])
-def portfolio():
+@app.route("/portfolio/<int:portfolio_id>", methods=["GET"])
+def portfolio(portfolio_id):
     if not login_required():
         flash("Please log in first", "error")
         return redirect(url_for("login"))
 
-    portfolio_id = get_current_portfolio_id()
     if not portfolio_id:
         flash("No portfolio found", "error")
         return redirect(url_for("index"))
