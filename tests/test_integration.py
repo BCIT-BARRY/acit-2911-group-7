@@ -8,7 +8,6 @@ class TestConfirm:
             "portfolio-name": "portfolio1",
             "cash-amount": "100000",
         })
-
         assert response.status_code == 302
         assert "/portfolio" in response.location
 
@@ -31,6 +30,6 @@ class TestPageLoading:
         assert b"Welcome" in response.data
 
     def test_portfolio_page_loads(self, logged_in_client):
-        response = logged_in_client.get("/portfolio")
+        response = logged_in_client.get("/portfolio/id")
         assert response.status_code == 200
         assert b"Portfolio" in response.data
