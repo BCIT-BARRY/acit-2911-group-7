@@ -15,7 +15,7 @@
             <button type="button" onclick="fetchPrice()">Get Current Price</button><br><br>
 
             <button type="submit">Sell</button>
-            <a class="button" href="{{ url_for('portfolio') }}">Back to portfolio</a>
+            <a class="button" href="{% if current_portfolio_id %}{{ url_for('portfolio', portfolio_id=current_portfolio_id) }}{% else %}{{ url_for('index') }}{% endif %}">Back to portfolio</a>
         </form>
     </div>
 </main>

@@ -30,10 +30,30 @@ app.config["SECRET_KEY"] = "change-this-secret-key"
 init_db()
 
 
+def get_current_portfolio_id():
+    user_id = session.get("user_id")
+    if not user_id:
+        return None
+    current_pid = session.get("current_portfolio_id")
+    if current_pid:
+        portfolio = get_portfolio(current_pid)
+        if portfolio and portfolio.user_id == user_id:
+            return current_pid
+    # Fallback to first portfolio
+    portfolios = get_portfolios_for_user(user_id)
+    if portfolios:
+        session["current_portfolio_id"] = portfolios[0].id
+        return portfolios[0].id
+    return None
+
 
 @app.context_processor
 def inject_login_state():
-    return {"logged_in": session.get("user_id") is not None}
+    current_portfolio_id = get_current_portfolio_id() if session.get("user_id") else None
+    return {
+        "logged_in": session.get("user_id") is not None,
+        "current_portfolio_id": current_portfolio_id
+    }
 
 
 def login_required():
@@ -78,8 +98,9 @@ def login():
             portfolios = get_portfolios_for_user(user.id)
             if portfolios:
                 session["current_portfolio_id"] = portfolios[0].id
+                flash("Logged in successfully", "success")
+                return redirect(url_for("portfolio", portfolio_id=portfolios[0].id))
             flash("Logged in successfully", "success")
-            return redirect(url_for("portfolio"))
 
         flash("Invalid username or password", "error")
         return redirect(url_for("login"))
@@ -113,6 +134,21 @@ def signup():
         return redirect(url_for("login"))
 
     return render_template("signup.html", title="Sign Up")
+
+# ROUTE: REDIRECT TO CURRENT PORTFOLIO
+@app.route("/portfolio", methods=["GET"])
+def portfolio_redirect():
+    if not login_required():
+        flash("Please log in first", "error")
+        return redirect(url_for("login"))
+    
+    portfolio_id = get_current_portfolio_id()
+    if not portfolio_id:
+        flash("No portfolio found", "error")
+        return redirect(url_for("index"))
+    
+    # Instead of redirecting, render the portfolio directly
+    return portfolio(portfolio_id)
 
 # ROUTE: GET PORTFOLIO PAGE
 @app.route("/portfolio/<int:portfolio_id>", methods=["GET"])
@@ -203,7 +239,7 @@ def buy():
         upsert_holding(portfolio_id, symbol, shares, price)
         record_transaction(portfolio_id, symbol, shares, price, "BUY", cost_basis=price)
         flash(f"Bought {shares} shares of {symbol.upper()} at ${price:.2f}", "success")
-        return redirect(url_for("portfolio"))
+        return redirect(url_for("portfolio", portfolio_id=portfolio_id))
 
     return render_template("buy.html", title="Buy Stocks")
 
@@ -245,7 +281,7 @@ def sell():
         sell_holding(portfolio_id, symbol, shares)
         record_transaction(portfolio_id, symbol, shares, price, "SELL", cost_basis=cost_basis)
         flash(f"Sold {shares} shares of {symbol.upper()} at ${price:.2f}", "success")
-        return redirect(url_for("portfolio"))
+        return redirect(url_for("portfolio", portfolio_id=portfolio_id))
 
     return render_template("sell.html", title="Sell Stocks")
 
@@ -284,7 +320,7 @@ def create_portfolio():
         portfolio = create_portfolio_db(user_id, name, cash)
         session["current_portfolio_id"] = portfolio.id
         flash(f"Portfolio '{name}' created with ${cash:.2f} cash", "success")
-        return redirect(url_for("portfolio"))
+        return redirect(url_for("portfolio", portfolio_id=portfolio.id))
 
     return render_template("create_portfolio.html", title="Create_Portfolio")
 

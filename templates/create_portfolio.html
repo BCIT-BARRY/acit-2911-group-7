@@ -15,7 +15,7 @@
             </div>
             
             <div class = "creation-box-bottom">
-                <button type = "button" class = "bottom-cancel" onclick="window.location.href='{{ url_for('portfolio') }}'">Cancel</button>
+                <button type = "button" class = "bottom-cancel" onclick="window.location.href='{% if current_portfolio_id %}{{ url_for('portfolio', portfolio_id=current_portfolio_id) }}{% else %}{{ url_for('index') }}{% endif %}'">Cancel</button>
                 <button type = "submit" class = "bottom-confirm">Confirm</button>
             </div>
            

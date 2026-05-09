@@ -7,7 +7,9 @@
 
     <form method="GET">
         <button type="submit" formaction="{{ url_for('login') }}">Login</button>
-        <button type="submit" formaction="{{ url_for('portfolio') }}">View Portfolio</button>
+        {% if logged_in and current_portfolio_id %}
+            <button type="submit" formaction="{{ url_for('portfolio', portfolio_id=current_portfolio_id) }}">View Portfolio</button>
+        {% endif %}
     </form>
 </main>
 
